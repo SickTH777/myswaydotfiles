@@ -24,7 +24,6 @@
         "modules": [
             "group/group-power",
             "sway/workspaces",
-            "mpd",
             "idle_inhibitor",
             "custom/updates",
             "custom/privacy-dots",
