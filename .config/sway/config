@@ -12,7 +12,7 @@ set $menu rofi -show drun
 output * bg ~/.config/wallpapers/Wallpaper.jpg fill
 
 # Lockscreen swaylock (what it does. can be bound to a key as well)
-set $lock_screen swaylock -f --image ~/.config/wallpapers/scaraspace.jpg --ignore-empty-password --indicator-caps-lock --indicator-radius 60 --indicator-thickness 10 --inside-color 16161dcc --ring-color 957fb8 --key-hl-color d27e99 --ring-ver-color b4befe --ring-wrong-color c34043 --separator-color 00000000 --line-color 00000000 --inside-ver-color 16161dcc --inside-wrong-color 16161dcc --text-color 00000000 --text-ver-color 00000000 --text-wrong-color 00000000 --text-caps-lock-color dcd7ba 
+set $lock_screen swaylock -f --image ~/PATH-TO-YOUR-IMAGE --ignore-empty-password --indicator-caps-lock --indicator-radius 60 --indicator-thickness 10 --inside-color 16161dcc --ring-color 957fb8 --key-hl-color d27e99 --ring-ver-color b4befe --ring-wrong-color c34043 --separator-color 00000000 --line-color 00000000 --inside-ver-color 16161dcc --inside-wrong-color 16161dcc --text-color 00000000 --text-ver-color 00000000 --text-wrong-color 00000000 --text-caps-lock-color dcd7ba 
 
 ### --------------------------------------------------------- WAYBAR --------------------------------------------------------- ###
 
@@ -46,7 +46,7 @@ exec swayidle -w \
 
 ### -------------------------------------------------- COLORS AND BORDERS ---------------------------------------------------- ###
 
-# Gaps and borders (disabling stock window decorations?)
+# Gaps and borders
 # gaps inner 15 looks pretty cool if you want to have gaps on the sides from the display
 gaps inner 8
 gaps outer -8
