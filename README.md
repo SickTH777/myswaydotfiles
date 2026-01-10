@@ -18,7 +18,7 @@ Sway config is included but that's mainly for me. There's some stuff for swayloc
 
 The colors are kinda odd for modules but I was so tired I couldn't be bothered to fix them. Should be pretty easy to find the lines for them in `style.css`. Stole the template from somebody else and redesigned it a little bit to fit a specific wallpaper that I like.
 
-It has the following modules on the left: Power menu, Workspaces, Idle_inhibitor, privacydots(expands towards the cetner), sway/mode (towards center as well) both modules expand the left "pill" without animations.
+It has the following modules on the left: Power menu, Workspaces, Idle_inhibitor, Fedora Updates, PrivacyDots(expands towards the cetner), sway/mode (towards center as well) both modules expand the left "pill" without animations.
 
 On the right it has: Tray, Notifications, Clipboard (you'll need the usual cliphist...etc), Language, Brightness, CPU, Memory, Temperature (cpu and memory expand towards the center from here), Bluetooth, Pulseaudio, Clock. 
 
