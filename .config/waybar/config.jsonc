@@ -1,0 +1,307 @@
+{
+    "exclusive": true,
+    "reload_style_on_change": true,
+    "position": "top",
+    "layer": "top",
+    "height": 30,
+    "width": 1920,
+    "spacing": 4,
+
+    "modules-left": [
+        "group/left-pills"
+    ],
+
+    "modules-center": [
+        "sway/window"
+    ],
+
+    "modules-right": [
+        "group/right-pills"
+    ],
+    /* --- GROUP DEFINITIONS --- */
+    "group/left-pills": {
+        "orientation": "horizontal",
+        "modules": [
+            "group/group-power",
+            "sway/workspaces",
+            "mpd",
+            "idle_inhibitor",
+            "custom/updates",
+            "custom/privacy-dots",
+            "sway/mode",
+            "sway/scratchpad"
+        ]
+    },
+
+    "group/right-pills": {
+        "orientation": "horizontal",
+        "modules": [
+            "tray",
+            "custom/notification",
+            "custom/clipboard",
+            "sway/language",
+            "backlight",
+            "group/hardware",
+            "bluetooth",
+            "pulseaudio",
+            "clock"
+        ]
+    },  
+    "group/hardware": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "temperature",
+            "cpu",
+            "memory",
+        ]
+    },   
+
+    "group/group-power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": true,
+        },
+        "modules": [
+            "custom/power",
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot",
+        ]
+    },
+    "custom/quit": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "swaymsg exit"
+    },
+
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip": false,
+        "on-click": "swaylock -f --image ~/.config/wallpapers/scaraspace.jpg --ignore-empty-password --indicator-caps-lock --indicator-radius 60 --indicator-thickness 10 --inside-color 16161dcc --ring-color 957fb8 --key-hl-color d27e99 --ring-ver-color b4befe --ring-wrong-color c34043 --separator-color 00000000 --line-color 00000000 --inside-ver-color 16161dcc --inside-wrong-color 16161dcc --text-color 00000000 --text-ver-color 00000000 --text-wrong-color 00000000 --text-caps-lock-color dcd7ba"
+    },
+
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "systemctl poweroff"
+    },
+
+    "custom/notification": {
+      "tooltip": true,
+      "format": "<span size='19pt'>{icon}</span>",
+      "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+    },
+
+    "custom/clipboard": {
+        "format": "",
+        "on-click": "cliphist list | rofi -dmenu -p 'Clipboard' -show-icons -theme-str 'element-icon { size: 25px; }' | cliphist decode | wl-copy",
+        "tooltip": false
+    },
+
+    "sway/window": {
+    "format": "{}",
+    "max-length": 30,
+    "rewrite": {
+        "(.*) — Mozilla Firefox": "Firefox",
+        "(.*) - Google Chrome": "Chrome",
+        "(.*) - Brave": "Brave",
+        "(.*) - Alacritty": "Terminal",
+        "(.+) - VSCodium": "Code"
+    }
+    },
+    "sway/mode": {
+    "format": "<span>{}</span>",
+    "max-length": 50
+    },
+
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "custom/updates": {
+        "exec": "bash $HOME/.config/waybar/scripts/checkupdates.sh", // <--- path to script
+        "on-click-right": "bash $HOME/.config/waybar/scripts/checkupdates.sh", // refresh on right click
+        "on-click-middle": "swaymsg exec '$term -e sudo dnf update --refresh'", // update on middle click    
+        "interval": 900, // refresh every 15 minutes
+        "return-type": "json",
+        "format": "{icon}",
+        "format-alt": "{icon} {}",
+        "format-icons": {
+             "has-updates": "", // icon when updates needed
+             "updated": "" // icon when all packages updated
+        }
+    },
+    "tray": {
+        "icon-size": 22,
+        "spacing": 2,
+        "show-passive-items": true
+    },
+
+    "clock": {
+        "format": " {:%H:%M %a}",
+        "format-alt": " {:%d/%m/%Y %H:%M}",
+        "tooltip-format": "<span>{calendar}</span>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-click-right": "mode",
+            "format": {
+                "month": "<span color='#ffead3'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>"
+            }
+        }
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": "{usage}% ",
+        "max-length": 10 
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "{}% ",
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f}G/{total:0.1f}G",
+        "max-length": 10
+    },
+
+    "temperature": {
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 85,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "sway/language": {
+        "format": "<span text_transform=\"uppercase\">{}</span>",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    }, 
+
+    "backlight": {
+        "scroll-step": 5,
+        "format": "{icon}",
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+        "tooltip": false
+    },
+      
+    "custom/privacy-dots": {
+        "exec": "~/.config/waybar/scripts/privacy_dots.sh",
+        "return-type": "json",
+        "interval": 3,
+        "format": "{text}",
+        "tooltip": true,
+        "escape": false,
+        "markup": "pango"
+    },
+    
+    
+    "network": {
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format": "{icon}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+        "interval": 5,
+        "spacing": 1
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": true
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\\t{controller_address}\\n\\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\\t{controller_address}\\n\\n{num_connections} connected\\n\\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\\t{device_address}\\t{device_battery_percentage}%"
+    }
+}

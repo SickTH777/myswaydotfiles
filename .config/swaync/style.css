@@ -1,0 +1,133 @@
+@define-color bg-deep        #16161d;
+@define-color bg-surface     #2a2b38;
+@define-color fg-main        #dcd7ba;
+@define-color glow-purple    #c6a0f6;
+@define-color glow-cyan      #91d7e3;
+@define-color dark-violet    #431259;
+@define-color red-accent     #c34043;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  border-radius: 12px;
+  outline: none;
+  box-shadow: none;
+}
+
+.widget-title > label {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: @glow-purple;
+}
+
+.control-center {
+  background: rgba(22, 22, 29, 0.95);
+  border: 2px solid @dark-violet;
+  border-radius: 15px;
+}
+
+.notification {
+  background: @bg-surface;
+  border: 2px solid @dark-violet;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.summary {
+  font-size: 15px;
+  font-weight: 700;
+  color: @glow-purple;
+}
+
+.body, .time {
+  color: @fg-main;
+}
+
+.widget-mpris {
+  background: @bg-surface;
+  color: @fg-main;
+  padding: 8px;
+  margin: 8px;
+}
+
+.widget-mpris-player {
+  background: @bg-deep;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.widget-mpris > box > button {
+  border-radius: 10px;
+  color: @glow-purple;
+  font-size: 1.3rem;
+  margin: 0 8px;
+  background: transparent;
+}
+
+.widget-mpris > box > button:hover {
+  color: @red-accent;
+  background: @bg-surface;
+}
+
+.widget-buttons-grid {
+  background: @bg-surface;
+  margin: 8px;
+  padding: 8px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @bg-deep;
+  color: @glow-purple;
+  margin: 4px;
+  min-width: 60px;
+  min-height: 45px;
+  font-size: 1.2rem;
+  border: 1px solid transparent;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @glow-purple;
+  color: @bg-deep;
+}
+
+.widget-title > button {
+  background: @bg-deep;
+  color: @glow-purple;
+  border: 1px solid @dark-violet;
+  border-radius: 8px;
+}
+
+.close-button {
+  background: @red;
+  color: @fg-bright;
+  text-shadow: none;
+  padding: 0;
+  margin-top: 5px;
+  margin-right: 5px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 5px;
+  border: none;
+}
+
+.close-button:hover, 
+.widget-title > button:hover {
+  background: @red-accent;
+  color: @bg-deep;
+  border: 1px solid @red-accent;
+}
+
+.widget-dnd {
+  background: @bg-surface;
+  color: @glow-purple;
+  padding: 8px;
+}
+
+.widget-dnd > switch {
+  background: @bg-deep;
+  border-radius: 20px;
+}
+
+.widget-dnd > switch:checked {
+  background: @glow-purple;
+}
+
