@@ -43,8 +43,7 @@ for_window {
       [sandbox_app_id="io.github.peazip.PeaZip"] $pretty_small
       [app_id="corectrl"] $pretty_small
       [app_id="pavucontrol"] $pretty_small
-      [app_id="org.gnome.Nautilus"] $pretty_small
-      [app_id="dolphin"] $pretty_small
+      
       [app_id="blueman-manager"] $pretty_small
       [app_id="audacious"] $pretty_small
       [class="Audacious"] $pretty_small
@@ -86,3 +85,6 @@ for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky en
 # Apps that just work as i like
 for_window [class="An Anime Game Launcher"] floating enable;move position center
 for_window [app_id="virt-manager"] floating enable
+for_window [app_id="dolphin"] floating enable; move position center
+for_window [app_id="org.gnome.Nautilus"] floating enable move position center
+
