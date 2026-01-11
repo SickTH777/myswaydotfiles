@@ -107,6 +107,10 @@ padding: 0 10px;
 margin: 0;
 }
 
+#tray {
+  margin-right: -8px;
+  margin-left: -8px;
+}
 #workspaces button {
     background-color: rgba(0, 0, 0, 0.01);
     color: rgba(181, 167, 214, 0.35);      
@@ -332,8 +336,9 @@ animation: none;
 
 
 #tray menu {
-    background-color: #16161d; 
-    color: #dcd7ba;
+    background-color: @bg-medium;
+    border-radius: 12;
+    color: @fg-normal;
     text-shadow: none;
     border: 1px solid #957fb8;
 }
@@ -364,12 +369,15 @@ animation: none;
 #language:hover,
 #power-profiles-daemon:hover,
 #bluetooth:hover,
+#tray menu menuitem:hover,
 #pulseaudio:hover {
 border-radius: 10px;
 opacity: 0.67;
 background-color: @red;
 color: @foreground;
 }
+
+
 
 @keyframes pulse {
     0% { opacity: 1; }
