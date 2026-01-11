@@ -5,32 +5,81 @@
 #
 #
 #
-#Polkit floating
-for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] {
-    floating enable
-    border none
-}
-for_window [app_id="mate-polkit"] floating enable
-for_window [app_id="mate-polkit"] resize set 400 200
-for_window [app_id="mate-polkit"] move position center
+#
 
-# CoreCtrl - always float
-for_window [app_id="peazip"] floating enable
-for_window [sandbox_app_id="io.github.peazip.PeaZip"] floating enable
-for_window [app_id="corectrl"] floating enable
-for_window [app_id="pavucontrol"] floating enable
-for_window [title="Open File"] floating enable
-for_window [app_id="blueman-manager"] floating enable
-for_window [title="^Picture in picture$"] floating enable, sticky enable
-for_window [window_role="pop-up"] floating enable
-for_window [app_id="dolphin"] floating enable
-# Steam floating windows
-for_window [class="^Steam$" title="^Friends$"] floating enable
-for_window [class="^Steam$" title="^Friends List$"] floating enable
-for_window [class="^Steam$" title=".* - Chat$"] floating enable
-for_window [class="^Steam$" title="^Steam Keyboard$"] floating enable
-for_window [class="^Steam$" title="^Settings$"] floating enable
-for_window [class="^Steam$" title="^Add Game$"] floating enable
-# Optional: Make floating windows centered and set size
-for_window [app_id="corectrl"] move position center
-for_window [class="^Steam$" title="^Friends$"] move position center
+# Setting up the values
+
+set $pretty_big floating enable; resize set 1240 800; move position center
+set $pretty_small floating enable; resize set 950 640; move position center
+set $almost_full floating enable; resize set 1800 960; move position center
+set $game inhibit_idle focus; floating enable; border none; fullscreen enable;
+set $vertical_small floating enable; resize set 400 600
+set $polkit floating enable; resize set 600 300; move position center; border none
+
+# Applying the values
+for_window {
+# Almost full screen. change this to % later if you ever decide to switch hardware
+      [class="mihomo-party"] $almost_full
+
+# Things i want to be bigger
+      [app_id="com.usebottles.bottles"] $pretty_big
+      [class="(?i)^steam$" title="Steam Settings$"] $pretty_big
+      [class="discord"] $pretty_big
+      [class="vlc"] $pretty_big
+      [app_id="org.kde.gwenview"] $pretty_big
+      [app_id="btrfs-assistant"] $pretty_big
+      [app_id="firewall-config"] $pretty_big
+      [app_id="setroubleshoot"] $pretty_big
+
+# Things i want to be smaller 
+      [app_id="org.qbittorrent.qBittorrent"] $pretty_small
+      [app_id="com.obsproject.Studio"] $pretty_small
+      [app_id="peazip"] $pretty_small
+      [app_id="org.kde.ark"] $pretty_small
+      [app_id="org.telegram.desktop"] $pretty_small
+      [sandbox_app_id="io.github.peazip.PeaZip"] $pretty_small
+      [app_id="corectrl"] $pretty_small
+      [app_id="pavucontrol"] $pretty_small
+      [app_id="org.gnome.Nautilus"] $pretty_small
+      [app_id="dolphin"] $pretty_small
+      [app_id="blueman-manager"] $pretty_small
+      [app_id="audacious"] $pretty_small
+      [class="Audacious"] $pretty_small
+      [class="^steam$" title=".* - Chat$"] $pretty_small
+      [class="(?i)^steam$" title="Add Non-Steam Game"] $pretty_small
+      [class="(?i)^steam$" title="(?i)^Steam$"] $pretty_small
+      [app_id="org.gnome.SystemMonitor"] $pretty_small
+      [app_id="gnome-disks"] $pretty_small
+      [app_id="org.kde.partitionmanager"] $pretty_small
+
+# Vertical
+      [class="(?i)^steam$" title="(?i)^Friends$"] $vertical_small
+      [class="(?i)^steam" title="(?i)^Friends List$"] $vertical_small
+      [app_id="org.gnome.Calculator"] $vertical_small
+      [app_id="org.kde.kcalc"] $vertical_small
+
+# Game 
+      [class="^steam_app_.*"] $game
+      [class="(?i)wine"] $game
+      [class="gamescope"] $game
+      [instance="gamescope"] $game
+      [class="steam_app.*"] $game
+      [instance="steam_app.*"] $game
+      [class="genshinimpact.exe"] $game
+      [app_id="UnleashedRecomp"] $game
+      [sandbox_app_id="io.github.hedge_dev.unleashedrecomp"] $game
+
+# Polkit rules
+      [app_id="mate-polkit"] $polkit
+      [app_id="org.kde.polkit-kde-authentication-agent-1"] $polkit
+}
+
+# General stuff to figure out later
+for_window [title="Open File"] floating enable; sticky enable
+for_window [title="^Picture in picture$"] floating enable; sticky enable
+for_window [window_role="pop-up"] floating enable; sticky enable
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
+
+# Apps that just work as i like
+for_window [class="An Anime Game Launcher"] floating enable;move position center
+for_window [app_id="virt-manager"] floating enable
