@@ -13,7 +13,7 @@
   "timeout-critical": 0,
   "fit-to-screen": false,
   "control-center-width": 450,
-  "control-center-height": 650,
+  "control-center-height": 700,
   "notification-window-width": 450,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -30,10 +30,11 @@
       "button-text": "󰆴 Clear All"
     },
     "mpris": {
-      "blacklist": ["playerctl"],
-      "autohide": false,
+      "image-size": 88,
+      "image-radius": 12,
       "show-album-art": "always",
-      "loop-carousel": false
+      "autohide": true,
+      "max-visible": 3
     },
     "volume": {
       "label": "󰕾"
@@ -53,7 +54,7 @@
         },
         {
           "label": "󰌾",
-          "command": "swaylock -f --image ~/.config/wallpapers/path --ignore-empty-password --indicator-caps-lock --indicator-radius 60 --indicator-thickness 10 --inside-color 16161dcc --ring-color 957fb8 --key-hl-color d27e99 --ring-ver-color b4befe --ring-wrong-color c34043 --separator-color 00000000 --line-color 00000000 --inside-ver-color 16161dcc --inside-wrong-color 16161dcc --text-color 00000000 --text-ver-color 00000000 --text-wrong-color 00000000 --text-caps-lock-color dcd7ba"
+          "command": "swaylock -f --image ~/.config/wallpapers/scaraspace.jpg --ignore-empty-password --indicator-caps-lock --indicator-radius 60 --indicator-thickness 10 --inside-color 16161dcc --ring-color 957fb8 --key-hl-color d27e99 --ring-ver-color b4befe --ring-wrong-color c34043 --separator-color 00000000 --line-color 00000000 --inside-ver-color 16161dcc --inside-wrong-color 16161dcc --text-color 00000000 --text-ver-color 00000000 --text-wrong-color 00000000 --text-caps-lock-color dcd7ba"
         },
         {
           "label": "󰍃",
