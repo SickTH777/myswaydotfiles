@@ -22,7 +22,7 @@
     border: none;
     border-radius: 12;
     font-family: "Google Sans", "JetBrainsMono Nerd Font", "Fira Code", "Symbols Nerf Font Mono", monospace; /* probably dont need half of those */
-    font-weight: 300;
+    font-weight: 400;
     font-size: 15px;
     min-height: 0;
 }
@@ -100,7 +100,7 @@ padding: 0 20px;
 border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#workspaces, #mpd, #custom-updates, #idle_inhibitor, #mode, #scratchpad, #tray,
+#workspaces, #mpd, #custom-updates, #idle_inhibitor, #mode, #scratchpad,#tray,
 #custom-notification, #language, #backlight, #custom-clipboard,
 #bluetooth, #memory, #cpu, #temperature, #pulseaudio, #clock {
 padding: 0 10px;
