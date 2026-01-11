@@ -26,6 +26,9 @@ for_window {
       [class="(?i)^steam$" title="Steam Settings$"] $pretty_big
       [class="discord"] $pretty_big
       [class="vlc"] $pretty_big
+      [app_id="nwg-look"] $pretty_big
+      [app_id="qt5ct"] $pretty_big
+      [app_id="qt6ct"] $pretty_big
       [app_id="org.kde.gwenview"] $pretty_big
       [app_id="btrfs-assistant"] $pretty_big
       [app_id="firewall-config"] $pretty_big
