@@ -22,7 +22,7 @@
     border: none;
     border-radius: 12;
     font-family: "Google Sans", "JetBrainsMono Nerd Font", "Fira Code", "Symbols Nerf Font Mono", monospace; /* probably dont need half of those */
-    font-weight: 400;
+    font-weight: 300;
     font-size: 15px;
     min-height: 0;
 }
@@ -328,6 +328,19 @@ font-weight: bold;
 #custom-notification.inhibited {
 color: @warning;
 animation: none;
+}
+
+
+#tray menu {
+    background-color: #16161d; 
+    color: #dcd7ba;
+    text-shadow: none;
+    border: 1px solid #957fb8;
+}
+
+#tray menu * {
+    background: none;
+    text-shadow: none;
 }
 
 #window:hover,
