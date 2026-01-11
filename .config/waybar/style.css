@@ -100,7 +100,7 @@ padding: 0 20px;
 border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#workspaces, #mpd, #custom-updates, #idle_inhibitor, #mode, #scratchpad,#tray,
+#workspaces, #mpd, #custom-updates, #idle_inhibitor, #mode, #scratchpad, #tray,
 #custom-notification, #language, #backlight, #custom-clipboard,
 #bluetooth, #memory, #cpu, #temperature, #pulseaudio, #clock {
 padding: 0 10px;
