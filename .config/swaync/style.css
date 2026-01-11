@@ -5,9 +5,9 @@
 @define-color glow-cyan      #91d7e3;
 @define-color dark-violet    #431259;
 @define-color red-accent     #c34043;
-
+/* half of the stuff probably doesn't do anything */
 * {
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-family: "Google Sans", monospace;
   border-radius: 12px;
   outline: none;
   box-shadow: none;
@@ -25,11 +25,38 @@
   border-radius: 15px;
 }
 
+.control-center-clear-all{
+  font-size: 15px;
+  font-weight: 300;
+  border-radius: 12px;
+}
+
 .notification {
   background: @bg-surface;
   border: 2px solid @dark-violet;
-  margin: 5px;
-  border-radius: 10px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  padding: 6px 15px 10px 8px;
+}
+
+.notification-group > box > box > .notification {
+    background: rgba(22, 22, 29, 0.8);
+    margin-top: -2px; 
+    border-top: 1px solid rgba(67, 18, 89, 0.5);
+}
+
+.notification-group > box > box > .notification:first-child {
+    background: @bg-surface;
+    margin-top: 5px;
+}
+
+.notification-row,
+.notification-row:hover,
+.notification-row:focus {
+    background: transparent;
+    outline: none;
+    margin: 0;
+    padding: 0;
 }
 
 .summary {
@@ -43,29 +70,48 @@
 }
 
 .widget-mpris {
-  background: @bg-surface;
-  color: @fg-main;
-  padding: 8px;
-  margin: 8px;
+    background: @bg-surface;
+    border-radius: 12px;
+    margin: 4px 8px 0px 8px; 
+    padding: 0;
 }
 
 .widget-mpris-player {
-  background: @bg-deep;
-  border-radius: 12px;
-  padding: 15px;
+    background: @bg-surface;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 0;
+}
+
+.widget-mpris-album-art {
+    all: unset;
+    border-radius: 12px;
+    margin-left: 6px;
+    margin-bottom: -57px;
+}
+
+.widget-mpris-title {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: @fg-main;
+    margin-bottom: 0px;
+}
+
+.widget-mpris-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(220, 215, 186, 0.6);}
+
+.widget-mpris > box {
+    margin-top: 5px;
 }
 
 .widget-mpris > box > button {
-  border-radius: 10px;
-  color: @glow-purple;
-  font-size: 1.3rem;
-  margin: 0 8px;
-  background: transparent;
-}
-
-.widget-mpris > box > button:hover {
-  color: @red-accent;
-  background: @bg-surface;
+    background: transparent;
+    color: @glow-purple;
+    font-size: 1.3rem;
+    margin: 0 10px;
+    padding: 0;
 }
 
 .widget-buttons-grid {
@@ -85,7 +131,7 @@
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: @glow-purple;
+  background: rgba(237, 135, 150, 0.70);
   color: @bg-deep;
 }
 
