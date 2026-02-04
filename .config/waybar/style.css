@@ -95,8 +95,9 @@ background: transparent;
 background-color: @bg-medium;
 color: @fg-normal;
 border-radius: 12px;
-margin:0px;
-padding: 0 20px;
+margin: 4 0px;
+padding: 0 12px;
+min-height: 24px;
 border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
